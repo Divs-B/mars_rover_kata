@@ -1,0 +1,23 @@
+{
+  "name": "mars_rover_kata",
+  "version": "1.0.0",
+  "description": "",
+  "main": "mars_main.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "start": "npx nodemon src/mars_main.ts",
+    "test": "jest test/mars_main.test.ts"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/jest": "^27.4.1",
+    "jest": "^27.5.1",
+    "nodemon": "^2.0.15",
+    "ts-jest": "^27.1.3",
+    "ts-node": "^10.7.0",
+    "typescript": "^4.6.2"
+  }
+}
