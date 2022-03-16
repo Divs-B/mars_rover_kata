@@ -22,7 +22,52 @@ class RoversOnMars {
     }
     roversPositionMovedTo(input) {
         this.intialize(input);
-        return [[1, 3, "N"], [5, 1, "E"]];
+        // type direction = "L" | "R" | "M" | "N" | "S" | "E" | "W"
+        // const dir: direction = "L"
+        this.rovers.forEach(aRover => {
+            const dirs = [...aRover.directionToMove];
+            dirs.forEach((dir, i) => {
+                switch (dir) {
+                    case "L":
+                        console.log("go for L");
+                        if (aRover.orientation === "N")
+                            aRover.orientation = "W";
+                        else if (aRover.orientation === "W")
+                            aRover.orientation = "S";
+                        else if (aRover.orientation === "S")
+                            aRover.orientation = "E";
+                        else if (aRover.orientation === "E")
+                            aRover.orientation = "N";
+                        break;
+                    case "R":
+                        console.log("go for R");
+                        if (aRover.orientation === "N")
+                            aRover.orientation = "E";
+                        else if (aRover.orientation === "E")
+                            aRover.orientation = "S";
+                        else if (aRover.orientation === "S")
+                            aRover.orientation = "W";
+                        else if (aRover.orientation === "W")
+                            aRover.orientation = "N";
+                        break;
+                    case "M":
+                        console.log("go for M " + this.plateau[1]);
+                        if (aRover.orientation === "N")
+                            aRover.y = aRover.y < this.plateau[1] ? aRover.y + 1 : aRover.y;
+                        else if (aRover.orientation === "E")
+                            aRover.x = aRover.x < this.plateau[0] ? aRover.x + 1 : aRover.x;
+                        else if (aRover.orientation === "W")
+                            aRover.x = aRover.x > 0 ? aRover.x - 1 : aRover.x;
+                        else if (aRover.orientation === "S")
+                            aRover.y = aRover.y > 0 ? aRover.y - 1 : aRover.y;
+                        break;
+                }
+            });
+        });
+        const finalResult = this.rovers.map(aRover => {
+            return [aRover.x, aRover.y, aRover.orientation];
+        });
+        return [...finalResult];
     }
 }
 exports.RoversOnMars = RoversOnMars;
