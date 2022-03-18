@@ -42,9 +42,9 @@ Based on this, We pass input in unit test cases as an object of arrays in order 
 
 ## Pre-Requisites
 
-* Typescript installed
-   Run install typescript --save-dev
-* Node installed 
+* Typescript installed. If not, do run on terminal : install typescript --save-dev
+* Node installed.
+
 (Kindly refer package.json for more details for versions)
 
 
