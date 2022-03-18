@@ -1,26 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const mars_main_1 = require("../src/mars_main");
-//----test double 'mock' to check dependency of logger in mars_main
-// import { Logger } from "../src/logger";
-// jest.mock('../src/logger')
-// let dummyDetails = [];
-// const mockedClass = Logger as jest.MockedClass<typeof Logger>;
-// const mockLogger = jest.fn()
-// beforeEach(() => {
-//     dummyDetails = [[5, 5], [3, 3, "N", "LM"], [4, 4, "E", "MM"]]
-//     mockedClass.mockClear
-// });
-// afterEach(() => {
-//     jest.clearAllMocks()
-// })
-// it('We can check ...', () => {
-//     const loggs = new Logger();
-//     const rovermars = new RoversOnMars()
-//     const result = rovermars.intialize(dummyDetails)
-//     expect(mockLogger).toHaveBeenCalled();
-// });
-//----different inputs case---//
 const input = {};
 const output = {};
 it.each([

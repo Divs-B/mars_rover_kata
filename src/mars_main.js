@@ -1,12 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.RoversOnMars = void 0;
-const logger_1 = require("./logger");
 class RoversOnMars {
     constructor() {
         this.plateau = { sizex: 0, sizey: 0 };
         this.rovers = [];
-        this.logger = new logger_1.Logger();
     }
     intialize(input) {
         let index = 0;
@@ -59,7 +57,6 @@ class RoversOnMars {
                             aRover.y = aRover.y > 0 ? aRover.y - 1 : aRover.y;
                         break;
                     default:
-                        this.logger.log("Error! Rover can't have invalid input.");
                         throw new Error("Rover input is not valid!");
                 }
             });
@@ -70,15 +67,11 @@ class RoversOnMars {
         return [...finalResult];
     }
     driveRoversOnMars(input) {
-        if (!input) {
-            this.logger.log("Error! Undefined input");
+        if (!input)
             throw new Error("Undefined input");
-        }
         this.intialize(input);
-        if (!this.isPlateauAptSize(this.plateau.sizex, this.plateau.sizey)) {
-            this.logger.log("Error! Plateau should be striclty more then 0,0");
+        if (!this.isPlateauAptSize(this.plateau.sizex, this.plateau.sizey))
             throw new Error('Plateau should be striclty more then 0,0');
-        }
         return this.calculateMovesForEachRover(this.rovers);
     }
 }

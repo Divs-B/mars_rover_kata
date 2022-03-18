@@ -1,13 +1,12 @@
 import { Vehicle } from "./vehicle";
 import { Plateau } from "./plateau";
-import { Logger } from "./logger";
 
 
 export class RoversOnMars {
 
     plateau: Plateau = { sizex: 0, sizey: 0 }
     rovers: Array<Vehicle> = []
-    logger: Logger = new Logger()
+
 
     intialize(input: Object): void {
         let index: number = 0
@@ -61,7 +60,6 @@ export class RoversOnMars {
                             aRover.y = aRover.y > 0 ? aRover.y - 1 : aRover.y
                         break;
                     default:
-                        this.logger.log("Error! Rover can't have invalid input.")
                         throw new Error("Rover input is not valid!");
 
                 }
@@ -75,21 +73,16 @@ export class RoversOnMars {
 
 
     driveRoversOnMars(input: Object): Object {
-        if (!input) {
-            this.logger.log("Error! Undefined input");
+        if (!input)
             throw new Error("Undefined input");
-        }
 
         this.intialize(input)
 
-        if (!this.isPlateauAptSize(this.plateau.sizex, this.plateau.sizey)) {
-            this.logger.log("Error! Plateau should be striclty more then 0,0");
+        if (!this.isPlateauAptSize(this.plateau.sizex, this.plateau.sizey))
             throw new Error('Plateau should be striclty more then 0,0');
-        }
 
         return this.calculateMovesForEachRover(this.rovers)
     }
-
 
 
 }
