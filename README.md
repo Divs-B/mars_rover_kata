@@ -18,23 +18,27 @@ It is strictly written with TDD approach under jest framework in Typescript
 
 Plateau is rectangular grid and rovers will move their cameras based on 'L' and 'R' and move position based on 'M'.
 
-Based on this, We will pass input in unit test cases as an object of arrays in order of:
-   * In start, first array will be plateau dimension.
-   * Rest all arrays will represent rover inputs; every array will represent each rover.
-     In each array, first two values will be x,y coordinates, 
-     third will indicate current facing direction and fourth will be expected directions to be taken.
+Based on this, We pass input in unit test cases as an object of arrays in order of:
+   * In start, first array is plateau dimension.
+   * Rest all arrays represents rover inputs; each array represent each rover.
+     In each array, first two values are x,y coordinates, 
+     third indicates facing the direction currently and fourth will be expected directions to be taken.
 
-   * We will cater output in same way as array for rover to make consistent behaviour; 
+   * We cater output in same way as array for rover to make consistent behaviour; 
       first two values in array will indicate x,y coordinates and third will tell about direction after computing.
 
 ## Approach
 
 * Incorporated Object oriented approach in Typescript to make function modular and scalable.
 
-* Each function in main class will own single responsiblity to have clean code.
+* Interfaces to keep detail on abstraction level to have better architecture
 
-* Testcases will cover different valid and non-valid inputs to test code reliablity.      
+* Each function in main class owns single responsiblity to have clean code.
 
+* TDD approach will keep code intact and testable
+
+* Testcases will cover different valid and non-valid inputs to test reliablity.      
+ 
 
 ## Pre-Requisites
 
