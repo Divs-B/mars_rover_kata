@@ -16,11 +16,13 @@ It is strictly written with TDD approach under jest framework in Typescript
 
 ## Assumptions
 
-Plateau is rectangular grid and rovers will move their cameras based on 'L' and 'R' and will move position based on 'M' inside the direction input.
-Based on this, We will pass input in unit test cases as an object of arrays in order of 
-   * In start, first array will be plateau dimension
-     rest of the arrays will represent rover inputs; each array will represent each rover.
-     In each array, first two values will be x,y coordinates, third will indicate current direction and fourth will be expected directions to be taken.
+Plateau is rectangular grid and rovers will move their cameras based on 'L' and 'R' and move position based on 'M'.
+
+Based on this, We will pass input in unit test cases as an object of arrays in order of:
+   * In start, first array will be plateau dimension.
+   * Rest all arrays will represent rover inputs; every array will represent each rover.
+     In each array, first two values will be x,y coordinates, 
+     third will indicate current facing direction and fourth will be expected directions to be taken.
 
    * We will cater output in same way as array for rover to make consistent behaviour; 
       first two values in array will indicate x,y coordinates and third will tell about direction after computing.
