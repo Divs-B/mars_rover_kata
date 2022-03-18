@@ -7,8 +7,8 @@
     "test": "test"
   },
   "scripts": {
-    "start": "npx nodemon src/mars_main.ts",
-    "test": "jest test/mars_main.test.ts"
+    "start": "npx ts-node src/mars_main.ts",
+    "test": "jest test/mars_main.test.js"
   },
   "author": "",
   "license": "ISC",
