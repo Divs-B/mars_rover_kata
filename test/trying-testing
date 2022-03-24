@@ -1,0 +1,88 @@
+//--- to check more number of rovers at one time
+// let input: Object = {}
+// let output: Object = {}
+let plateauSize: Array<number> = [5, 5]
+const roversFleet: number = 5
+const roverInput: Object = [[3, 3, "E", "MMRMMRMRRM"]]
+const roverOutput: Object = [[5, 1, "E"]]
+let input: Object = [[plateauSize], [roverInput]]
+let output: Object = [roverOutput]
+for (let i = 0; i < roversFleet; i += 1) {
+    input = { ...input, ...roverInput }
+    output = { ...output, ...roverOutput }
+}
+const testData = [
+    [input, output]
+]
+
+test.each(testData)('myFunc work correctly for %s', (input, output) => {
+    console.log("Input = " + input)
+    console.log("Output = " + output)
+    const rovermars = new RoversOnMars()
+    const result = rovermars.driveRoversOnMars(input)
+    expect(result).toStrictEqual(output)
+})
+
+
+// let arrOfRoverObjsInput: Array<Object> = [[plateauSize]]
+// let arrOfRoverObjsOutput: Array<Object> = []
+// for (let i = 0; i < roversFleet; i += 1) {
+//     arrOfRoverObjsInput.push(roverInput)
+//     arrOfRoverObjsOutput.push(roverOutput)
+// }
+// const input: Object = [...arrOfRoverObjsInput] as Object
+// const output: Object = [...arrOfRoverObjsOutput] as Object
+// const testData = [
+//     input, output
+// ]
+
+
+
+// let plateauSize: Array<number> = [5, 5]
+// const roversFleet: number = 5
+// const roverInput: Object = [[3, 3, "E", "MMRMMRMRRM"]]
+// const roverOutput: Object = [[5, 1, "E"]]
+// let input = { push: function push(element) { [].push.call(this, element) } };
+// input.push(plateauSize)
+// let output = { push: function push(element) { [].push.call(this, element) } };
+
+// for (let i = 0; i < roversFleet; i += 1) {
+//     input.push(roverInput)
+//     output.push(roverOutput)
+// }
+// const testData = [
+//     [input, output]
+// ]
+
+// test.each(testData)('myFunc work correctly for %s', (input, output) => {
+//     console.log("Input = " + input)
+//     console.log("Output = " + output)
+//     const rovermars = new RoversOnMars()
+//     const result = rovermars.driveRoversOnMars(input)
+//     expect(result).toStrictEqual(output)
+// })
+
+
+// let plateauSize: Array<number> = [5, 5]
+// const roversFleet: number = 5
+// const roverInput: Object = [[3, 3, "E", "MMRMMRMRRM"]]
+// const roverOutput: Object = [[5, 1, "E"]]
+// let input: Object = [[5, 5]]
+// let output: Object = {}
+
+// const roversInput: Array<Vehicle> = []
+// for (let i = 0; i < roversFleet; i++) {
+//     if (i > 0)
+//         input[i] = Object.assign([[3, 3, "E", "MMRMMRMRRM"]])
+//     if (i < roversFleet)
+//         output[i] = Object.assign([[5, 1, "E"]])
+//     console.log(" input=" + Object.entries(input))
+//     console.log(" output=" + Object.entries(output))
+// }
+// describe("driveRoversOnMars", () => {
+//     test("check my func", () => {
+//         const rovermars = new RoversOnMars()
+//         const result = rovermars.driveRoversOnMars(input)
+//         expect(result).toStrictEqual(output)
+//     })
+// })

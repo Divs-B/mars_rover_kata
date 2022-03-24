@@ -1,6 +1,6 @@
+import { Position } from "./position"
+
 export interface Vehicle {
-    x: number,
-    y: number,
-    orientation: string,
-    directionToMove: string
+    position: Position,
+    inputDirectionCommandString: string
 }

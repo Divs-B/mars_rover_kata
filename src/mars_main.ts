@@ -14,7 +14,7 @@ export class RoversOnMars {
             if (Number.parseInt(key) === 0) {
                 this.plateau = { sizex: value[0], sizey: value[1] }
             } else {
-                this.rovers[index] = { x: value[0], y: value[1], orientation: value[2], directionToMove: value[3] }
+                this.rovers[index] = { position: { x: value[0], y: value[1], orientation: value[2] }, inputDirectionCommandString: value[3] }
                 index += 1
             }
         }
@@ -26,38 +26,38 @@ export class RoversOnMars {
 
     calculateMovesForEachRover(rovers: Array<Vehicle>): Object {
         rovers.forEach(aRover => {
-            const dirs = [...aRover.directionToMove]
+            const dirs = [...aRover.inputDirectionCommandString]
             dirs.forEach((dir, i) => {
                 switch (dir) {
                     case "L":
-                        if (aRover.orientation === "N")
-                            aRover.orientation = "W"
-                        else if (aRover.orientation === "W")
-                            aRover.orientation = "S"
-                        else if (aRover.orientation === "S")
-                            aRover.orientation = "E"
-                        else if (aRover.orientation === "E")
-                            aRover.orientation = "N"
+                        if (aRover.position.orientation === "N")
+                            aRover.position.orientation = "W"
+                        else if (aRover.position.orientation === "W")
+                            aRover.position.orientation = "S"
+                        else if (aRover.position.orientation === "S")
+                            aRover.position.orientation = "E"
+                        else if (aRover.position.orientation === "E")
+                            aRover.position.orientation = "N"
                         break;
                     case "R":
-                        if (aRover.orientation === "N")
-                            aRover.orientation = "E"
-                        else if (aRover.orientation === "E")
-                            aRover.orientation = "S"
-                        else if (aRover.orientation === "S")
-                            aRover.orientation = "W"
-                        else if (aRover.orientation === "W")
-                            aRover.orientation = "N"
+                        if (aRover.position.orientation === "N")
+                            aRover.position.orientation = "E"
+                        else if (aRover.position.orientation === "E")
+                            aRover.position.orientation = "S"
+                        else if (aRover.position.orientation === "S")
+                            aRover.position.orientation = "W"
+                        else if (aRover.position.orientation === "W")
+                            aRover.position.orientation = "N"
                         break;
                     case "M":
-                        if (aRover.orientation === "N")
-                            aRover.y = aRover.y < this.plateau.sizey ? aRover.y + 1 : aRover.y
-                        else if (aRover.orientation === "E")
-                            aRover.x = aRover.x < this.plateau.sizex ? aRover.x + 1 : aRover.x
-                        else if (aRover.orientation === "W")
-                            aRover.x = aRover.x > 0 ? aRover.x - 1 : aRover.x
-                        else if (aRover.orientation === "S")
-                            aRover.y = aRover.y > 0 ? aRover.y - 1 : aRover.y
+                        if (aRover.position.orientation === "N")
+                            aRover.position.y = aRover.position.y < this.plateau.sizey ? aRover.position.y + 1 : aRover.position.y
+                        else if (aRover.position.orientation === "E")
+                            aRover.position.x = aRover.position.x < this.plateau.sizex ? aRover.position.x + 1 : aRover.position.x
+                        else if (aRover.position.orientation === "W")
+                            aRover.position.x = aRover.position.x > 0 ? aRover.position.x - 1 : aRover.position.x
+                        else if (aRover.position.orientation === "S")
+                            aRover.position.y = aRover.position.y > 0 ? aRover.position.y - 1 : aRover.position.y
                         break;
                     default:
                         throw new Error("Rover input is not valid!");
@@ -66,9 +66,9 @@ export class RoversOnMars {
             })
         })
         const finalResult = this.rovers.map(aRover => {
-            return [aRover.x, aRover.y, aRover.orientation]
+            return [aRover.position.x, aRover.position.y, aRover.position.orientation]
         })
-        return [...finalResult] as Object
+        return [...finalResult]
     }
 
 

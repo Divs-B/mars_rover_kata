@@ -2,13 +2,13 @@
   "name": "mars_rover_kata",
   "version": "1.0.0",
   "description": "",
-  "main": "mars_main.js",
+  "main": "mars_main.ts",
   "directories": {
     "test": "test"
   },
   "scripts": {
     "start": "npx ts-node src/mars_main.ts",
-    "test": "jest test/mars_main.test.js"
+    "test": "jest test/mars_main.test.ts"
   },
   "author": "",
   "license": "ISC",

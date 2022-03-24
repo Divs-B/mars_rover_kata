@@ -1,8 +1,5 @@
 import { RoversOnMars } from "../src/mars_main";
 
-const input: Object = {}
-const output: Object = {}
-
 it.each([
     [
         [[5, 5], [3, 3, "N", "LM"], [4, 4, "E", "MM"]],
@@ -52,6 +49,3 @@ describe("driveRoversOnMars", () => {
         expect(() => rovermars.driveRoversOnMars(input)).toThrow();
     })
 })
-
-
-
