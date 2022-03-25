@@ -16,7 +16,7 @@ It is strictly written with TDD approach under jest framework in Typescript
 
 ## Assumptions
 
-Plateau is rectangular grid and rovers will move their cameras based on 'L' and 'R' and move position based on 'M'.
+Plateau is rectangular grid on which Rovers will rotate left if they receive the input 'L', rotate right if they receive the input 'R' and move forward if they receive the input 'M'".
 
 Based on this, We pass input in unit test cases as an object of arrays in order of:
    * In start, first array is plateau dimension.
@@ -42,18 +42,12 @@ Based on this, We pass input in unit test cases as an object of arrays in order 
 
 ## Pre-Requisites
 
-* Typescript installed. If not, do run on terminal : install typescript --save-dev
-* Node installed.
+* Typescript and jest installed
 
-(Kindly refer package.json for more details for versions)
-
+run `npm install` to configure the required enviournment.
 
 ## Running the Unit Tests
 
 You can run the unit tests in your terminal by running:
-
-`npm install`
-
-Followed by:
 
 `npm test`

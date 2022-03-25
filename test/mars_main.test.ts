@@ -1,5 +1,6 @@
 import { RoversOnMars } from "../src/mars_main";
 
+//--Valid cases--//
 it.each([
     [
         [[5, 5], [3, 3, "N", "LM"], [4, 4, "E", "MM"]],
@@ -25,7 +26,7 @@ it.each([
 })
 
 
-//---Edge case--//
+//---Edge cases--//
 describe("driveRoversOnMars", () => {
     test("check driveRover functionality processing exception thrown when valid input is not passed", () => {
         const input: Object = NaN
@@ -45,6 +46,23 @@ describe("driveRoversOnMars", () => {
 describe("driveRoversOnMars", () => {
     test("check driveRovers functionality processing exception thrown when rovers input does not contain valid letters", () => {
         const input: Object = [[5, 5], [3, 3, "N###", "LM//"], [4, 4, "E", "MM"]]
+        const rovermars = new RoversOnMars()
+        expect(() => rovermars.driveRoversOnMars(input)).toThrow();
+    })
+})
+
+
+describe("driveRoversOnMars", () => {
+    test("check driveRovers functionality processing exception thrown when plateau input contain negative range", () => {
+        const input: Object = [[-5, -5], [3, 3, "N", "LM"], [4, 4, "E", "MM"]]
+        const rovermars = new RoversOnMars()
+        expect(() => rovermars.driveRoversOnMars(input)).toThrow();
+    })
+})
+
+describe("driveRoversOnMars", () => {
+    test("check driveRovers functionality processing exception thrown when rovers input contain negative coordinates", () => {
+        const input: Object = [[5, 5], [-3, -3, "N", "LM"], [-4, -4, "E", "MM"]]
         const rovermars = new RoversOnMars()
         expect(() => rovermars.driveRoversOnMars(input)).toThrow();
     })
